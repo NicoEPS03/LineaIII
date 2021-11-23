@@ -1,5 +1,7 @@
 package cundi.edu.co.demo.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,11 +10,17 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.springframework.hateoas.RepresentationModel;
+
+import io.swagger.annotations.ApiModel;
+
 import javax.persistence.ForeignKey;
 
 @Entity
 @Table(name = "usuario")
-public class Usuario {
+@ApiModel("Modelo usuario")
+public class Usuario extends RepresentationModel<Usuario> implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
