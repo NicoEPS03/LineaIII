@@ -30,6 +30,7 @@ import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
+//@PreAuthorize("hasAuthority('Administrador') 
 @RestController
 @RequestMapping("autor")
 @Validated
@@ -39,6 +40,7 @@ public class AutorController {
 	@Autowired
 	private IAutorService service;
 	
+	//@PreAuthorize("hasAuthority('Administrador')  OR hasAuthority(' ') ")
 	@ApiOperation(value = "Obtiene todos los autores", notes = "Retorna todos los autores")
 	@GetMapping(value = "/obtenerPaginado/{page}/{size}" ,produces = "application/json")
 	@ApiResponses(value = {
@@ -48,6 +50,7 @@ public class AutorController {
 		return new ResponseEntity<Page<AutorDto>>(listaAutores, HttpStatus.OK);	
 	}
 	
+	//@PreAuthorize("hasAuthority('Administrador')  OR hasAuthority('Vendedor') ")
 	@ApiOperation(value = "Buscar autor", notes = "Retorna autor por ID")
 	@GetMapping(value = "obtener/{id}/{libros}", produces = "application/json")
 	@ApiResponses(value = {
