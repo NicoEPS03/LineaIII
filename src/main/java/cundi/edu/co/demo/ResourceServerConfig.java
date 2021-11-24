@@ -36,6 +36,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter{
     //Url que vamos a proteger y como
     @Override
     public void configure(HttpSecurity http) throws Exception {
+        
                 http
                 .exceptionHandling().authenticationEntryPoint(new AuthExceptionOwn())
                 .and()
@@ -49,7 +50,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter{
                 .antMatchers("/estudiante/**" ).authenticated()
                 .antMatchers("/libro/**" ).authenticated()
                 .antMatchers("/registro/**" ).permitAll()
-                .antMatchers("/cerrarSesion/**" ).permitAll()
+                .antMatchers("/cerrarSesion/**" ).authenticated()
                 .antMatchers("/token/**" ).permitAll();                
     }    
 
