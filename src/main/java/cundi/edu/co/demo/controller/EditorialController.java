@@ -32,7 +32,7 @@ import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
-@PreAuthorize("hasAuthority('Vendedor')")
+//@PreAuthorize("hasAuthority('Vendedor')")
 @RestController
 @RequestMapping("editorial")
 @Validated
